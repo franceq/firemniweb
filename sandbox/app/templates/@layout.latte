@@ -19,6 +19,34 @@
 
 <body>
 
+	<div>
+
+		<ul>
+
+			<li><a n:href="Home:">{$lang['menu']['home']['home']}</a></li>
+			<li><a n:href="About:">{$lang['menu']['about']['about']}</a></li>
+			<li><a n:href="Projects:">{$lang['menu']['projects']['projects']}</a></li>
+			<li><a n:href="Edu:">{$lang['menu']['edu']['edu']}</a></li>
+			<li><a n:href="Reference:">{$lang['menu']['reference']['reference']}</a></li>			
+			<li><a href="#">{$lang['menu']['career']['career']}</a>
+				<ul>
+					<li><a n:href="Career:positions">{$lang['menu']['career']['positions']}</a></li>
+					<li><a n:href="Career:vacancies">{$lang['menu']['career']['vacancies']}</a></li>
+					<li><a n:href="Career:photogallery">{$lang['menu']['career']['photogallery']}</a></li>
+				</ul>
+			</li>
+			<li><a n:href="">{$lang['menu']['contact']['contact']}</a>
+				<ul>
+					<li><a n:href="Contact:branch">{$lang['menu']['contact']['branch']}</a></li>
+					<li><a n:href="Contact:canteen">{$lang['menu']['contact']['canteen']}</a></li>
+					<li><a n:href="Contact:people">{$lang['menu']['contact']['people']}</a></li>
+				</ul>
+			</li>
+
+		</ul>
+
+	</div>
+
 	{block content}{/block}
 
 </body>
