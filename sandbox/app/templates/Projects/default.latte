@@ -1,9 +1,21 @@
-{block title}Firemni Web{/block}
+{block title}{$lang['menu']['projects']['projects']}{/block}
 
 
 {block head}
 {/block}
 
 {block content}
+
+	{foreach $lang['projects'] as $project}
+
+		<div>
+
+			<h2>{$project['title']}</h2>
+
+			<p>{$project['text']}</p>
+
+		</div>
+
+	{/foreach}
 
 {/block}

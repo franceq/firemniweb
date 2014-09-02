@@ -4,9 +4,12 @@
 	<meta charset="utf-8">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-	<title>{ifset #title}{include title}{/ifset}</title>
+	<title>SSPC - {ifset #title}{include title}{/ifset}</title>
 
 	<link rel="shortcut icon" href="{$basePath}/favicon.ico">
+
+	<link rel="stylesheet" type="text/css" href="{$basePath}/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="{$basePath}/css/stylesheet.css">
 	
 	
 	<script src="{$basePath}/js/jquery-2.1.0.min.js"></script>
@@ -19,35 +22,74 @@
 
 <body>
 
-	<div>
+	<script> document.documentElement.className+=' js' </script>
 
-		<ul>
+	<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
 
-			<li><a n:href="Home:">{$lang['menu']['home']['home']}</a></li>
-			<li><a n:href="About:">{$lang['menu']['about']['about']}</a></li>
-			<li><a n:href="Projects:">{$lang['menu']['projects']['projects']}</a></li>
-			<li><a n:href="Edu:">{$lang['menu']['edu']['edu']}</a></li>
-			<li><a n:href="Reference:">{$lang['menu']['reference']['reference']}</a></li>			
-			<li><a href="#">{$lang['menu']['career']['career']}</a>
-				<ul>
-					<li><a n:href="Career:positions">{$lang['menu']['career']['positions']}</a></li>
-					<li><a n:href="Career:vacancies">{$lang['menu']['career']['vacancies']}</a></li>
-					<li><a n:href="Career:photogallery">{$lang['menu']['career']['photogallery']}</a></li>
-				</ul>
-			</li>
-			<li><a n:href="">{$lang['menu']['contact']['contact']}</a>
-				<ul>
-					<li><a n:href="Contact:branch">{$lang['menu']['contact']['branch']}</a></li>
-					<li><a n:href="Contact:canteen">{$lang['menu']['contact']['canteen']}</a></li>
-					<li><a n:href="Contact:people">{$lang['menu']['contact']['people']}</a></li>
-				</ul>
-			</li>
+	<div id="header"></div>
 
-		</ul>
+	<div id="menu">
+
+		<div id="menu_container">
+
+			<div id="logo" style="width: 120px; height: 120px; border: 1px solid white;position: relative;float: left; top: 10px;">LOGO</div>
+
+			<div id="sspc" style="width: 300px; height: 60px; border: 1px solid white;position: absolute; left: 140px; top: 10px; z-index: 500;">SSPC</div>
+
+			<div id="menu_start"></div>
+
+			<ul>
+
+				<li class="separator"></li>
+				<li class="menu_element {ifCurrent About:}current{/ifCurrent}"><a n:href="About:">{$lang['menu']['about']['about']}</a></li>
+				<li class="separator"></li>
+				<li class="menu_element {ifCurrent Projects:}current{/ifCurrent}"><a n:href="Projects:">{$lang['menu']['projects']['projects']}</a></li>
+				<li class="separator"></li>
+				<li class="menu_element {ifCurrent Edu:}current{/ifCurrent}"><a n:href="Edu:">{$lang['menu']['edu']['edu']}</a></li>
+				<li class="separator"></li>
+				<li class="menu_element {ifCurrent Reference:}current{/ifCurrent}"><a n:href="Reference:">{$lang['menu']['reference']['reference']}</a></li>	
+				<li class="separator"></li>		
+				<li class="menu_element csub {ifCurrent Career:}current{/ifCurrent}"><a href="#">{$lang['menu']['career']['career']}</a>
+					<ul>
+						<li><a n:href="Career:positions">{$lang['menu']['career']['positions']}</a></li>
+						<li><a n:href="Career:vacancies">{$lang['menu']['career']['vacancies']}</a></li>
+						<li><a class="menu_level_2_last" n:href="Career:photogallery">{$lang['menu']['career']['photogallery']}</a></li>
+					</ul>
+				</li>
+				<li class="separator"></li>
+				<li class="menu_element csub {ifCurrent Contact:}current{/ifCurrent}"><a n:href="">{$lang['menu']['contact']['contact']}</a>
+					<ul>
+						<li><a n:href="Contact:branch">{$lang['menu']['contact']['branch']}</a></li>
+						<li><a n:href="Contact:canteen">{$lang['menu']['contact']['canteen']}</a></li>
+						<li><a class="menu_level_2_last" n:href="Contact:people">{$lang['menu']['contact']['people']}</a></li>
+					</ul>
+				</li>
+				<li class="separator"></li>
+
+			</ul>
+
+			<div id="menu_end"></div>
+
+		</div>
 
 	</div>
 
-	{block content}{/block}
+	<div id="context">
+
+		<div id="context-x-top"></div>
+		<div id="context-x-bottom"></div>
+
+		{block content}{/block}
+
+		<div id="footer-top-button"></div>
+
+	</div>
+
+	<div id="footer">
+
+		<div id="copyright">{$lang['copyright']}</div>
+
+	</div>
 
 </body>
 

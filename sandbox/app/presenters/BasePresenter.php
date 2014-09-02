@@ -20,19 +20,26 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 		if(!isset($country->language)){
 			$country->language = "cz";
 		}
-		$this->lang = $country->language;
+		switch($country->language){
+			case 'cz':{
+				$lang = new \CzLang();
+				$this->lang = $lang->getData();
+			}
+			default:{
+				$lang = new \CzLang();
+				$this->lang = $lang->getData();
+			}
+		}
 	}
 
 	public function beforeRender(){
 		parent::beforeRender();
 		switch($this->lang){
 			case 'cz':{
-				$lang = new \CzLang();
-				$this->template->lang = $lang->getData();
+				$this->template->lang = $this->lang;
 			}
 			default:{
-				$lang = new \CzLang();
-				$this->template->lang = $lang->getData();
+				$this->template->lang = $this->lang;
 			}
 		}
 	}

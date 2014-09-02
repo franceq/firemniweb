@@ -28,7 +28,7 @@ nette:
 
 
 services:
-	- App\Model\UserManager
+	#- App\Model\UserManager
 	- App\RouterFactory
 	router: @App\RouterFactory::createRouter
-	dibi: DibiConnection(%database%)
+	#dibi: DibiConnection(%database%)
